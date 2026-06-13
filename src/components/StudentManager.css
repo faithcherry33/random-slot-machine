@@ -4,18 +4,24 @@
   flex-direction: column;
   gap: 1.5rem;
   height: 100%;
+  
+  /* Lovable Card Style */
+  background: var(--bg-surface);
+  border: 1px solid var(--border-passive);
+  border-radius: 12px;
+  box-shadow: none; /* No heavy shadows in Lovable */
 }
 
 .student-manager .header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--accent);
+  color: var(--text-main);
 }
 
 .student-manager .header h2 {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
 }
 
@@ -27,41 +33,50 @@
 
 .input-group textarea {
   width: 100%;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-passive);
+  border-radius: 6px;
   padding: 1rem;
   color: var(--text-main);
-  font-size: 0.95rem;
+  font-size: 1rem;
   resize: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+}
+
+.input-group textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .input-group textarea:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--accent-glow);
+  border-color: var(--ring-focus);
+  box-shadow: var(--shadow-focus);
 }
 
+/* Primary Dark Button */
 .btn-add {
-  background: var(--primary);
-  color: white;
-  padding: 0.75rem;
-  border-radius: 12px;
-  font-weight: 600;
+  background: var(--text-main);
+  color: var(--text-on-dark);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  box-shadow: var(--shadow-inset-btn);
 }
 
 .btn-add:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
+  opacity: 0.8;
 }
 
 .btn-add:active {
-  transform: translateY(0);
+  opacity: 0.9;
+}
+
+.btn-add:focus {
+  box-shadow: var(--shadow-focus);
 }
 
 .list-header {
@@ -73,23 +88,29 @@
 
 .list-header h3 {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-muted);
 }
 
+/* Ghost Button for Clear */
 .btn-clear {
   background: transparent;
-  color: var(--danger);
-  font-size: 0.85rem;
+  color: var(--text-main);
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.25rem 0.5rem;
+  padding: 8px 16px;
   border-radius: 6px;
+  border: 1px solid var(--border-interactive);
 }
 
 .btn-clear:hover {
-  background: rgba(239, 68, 68, 0.1);
+  opacity: 0.8;
+}
+
+.btn-clear:focus {
+  box-shadow: var(--shadow-focus);
 }
 
 .student-list {
@@ -105,20 +126,19 @@
   width: 100%;
   text-align: center;
   color: var(--text-muted);
-  font-style: italic;
   padding: 2rem 0;
 }
 
 .student-tag {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--glass-border);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-passive);
   padding: 0.4rem 0.75rem;
-  border-radius: 20px;
+  border-radius: 6px; /* standard 6px */
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  animation: fadeIn 0.3s ease;
+  color: var(--text-main);
 }
 
 .btn-remove {
@@ -128,15 +148,9 @@
   align-items: center;
   justify-content: center;
   padding: 0.1rem;
-  border-radius: 50%;
+  border-radius: 4px;
 }
 
 .btn-remove:hover {
-  color: var(--danger);
-  background: rgba(239, 68, 68, 0.2);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  color: var(--text-main);
 }

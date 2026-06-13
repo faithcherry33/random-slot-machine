@@ -11,19 +11,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  border: 1px solid var(--glass-border);
+  padding: 1.5rem 2rem;
+  background: var(--bg-surface);
+  border-radius: 12px;
+  border: 1px solid var(--border-passive);
 }
 
 .app-header h1 {
-  font-size: 1.8rem;
-  background: linear-gradient(to right, #60a5fa, #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 2.25rem; /* 36px */
+  letter-spacing: -0.9px;
   margin: 0;
+  color: var(--text-main);
+  background: none; /* Removed the previous gradient */
+  -webkit-text-fill-color: var(--text-main);
 }
 
 .settings {
@@ -31,24 +31,32 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 500;
+  color: var(--text-main);
 }
 
 .settings input {
   width: 60px;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--glass-border);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-passive);
   color: var(--text-main);
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 6px;
   text-align: center;
   font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.settings input:focus {
+  outline: none;
+  border-color: var(--ring-focus);
+  box-shadow: var(--shadow-focus);
 }
 
 .main-content {
   display: flex;
   gap: 1.5rem;
   flex: 1;
-  min-height: 0; /* important for flex children scrolling */
+  min-height: 0;
 }
 
 .left-panel {
@@ -70,9 +78,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(247, 244, 237, 0.85); /* Cream semi-transparent */
   backdrop-filter: blur(8px);
-  border-radius: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-passive);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,24 +93,32 @@
 
 .btn-close-balls {
   margin-top: 3rem;
-  background: var(--primary);
-  color: white;
-  padding: 0.75rem 3rem;
-  border-radius: 50px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
-  animation: slideUpFade 0.5s ease 2s both; /* 공 애니메이션 후 버튼 나타남 */
+  background: var(--text-main);
+  color: var(--text-on-dark);
+  padding: 8px 24px; /* More standard button padding */
+  border-radius: 6px; /* 6px radius from the spec */
+  font-size: 1rem;
+  font-weight: 400;
+  box-shadow: var(--shadow-inset-btn);
+  animation: slideUpFade 0.5s ease 2s both;
 }
 
 .btn-close-balls:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+.btn-close-balls:focus {
+  box-shadow: var(--shadow-focus);
 }
 
 @keyframes slideUpFade {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 768px) {
